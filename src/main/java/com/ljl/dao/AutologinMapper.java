@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Mapper
-@Component
 public interface AutologinMapper {
     int countByExample(AutologinExample example);
 

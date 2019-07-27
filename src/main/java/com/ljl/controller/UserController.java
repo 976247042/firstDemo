@@ -40,24 +40,27 @@ public class UserController {
         InetAddress addr = InetAddress.getLocalHost();
 //        System.out.println(request.getRemoteAddr());
         Map map = new HashMap();
-        for(Cookie c:request.getCookies()){
-            if(c.getName().equals("token")){
-                  String tk = c.getValue();
-                AutologinExample example = new AutologinExample();
-                example.createCriteria().andIpEqualTo(addr.getHostAddress()).andTokenEqualTo(tk);
-                List<Autologin> list = auto.selectByExample(example);
-                if(list!=null&&list.size()>0){
-                    User u = user.findById(list.get(0).getUserid());
-                    map.put("status",200);
-                    map.put("token", tk);
-                    request.getSession().setAttribute("user",u);
-                    request.getSession().setAttribute("token",tk);
-                }else{
-                    c.setMaxAge(-1);
-                    map.put("status",500);
-                    map.put("msg", "请重新输入用户名和密码登录");
+        Cookie[] cookies = request.getCookies();
+        if(cookies!=null&&cookies.length>0){
+            for(Cookie c:cookies){
+                if(c.getName().equals("token")){
+                    String tk = c.getValue();
+                    AutologinExample example = new AutologinExample();
+                    example.createCriteria().andIpEqualTo(addr.getHostAddress()).andTokenEqualTo(tk);
+                    List<Autologin> list = auto.selectByExample(example);
+                    if(list!=null&&list.size()>0){
+                        User u = user.findById(list.get(0).getUserid());
+                        map.put("status",200);
+                        map.put("token", tk);
+                        request.getSession().setAttribute("user",u);
+                        request.getSession().setAttribute("token",tk);
+                    }else{
+                        c.setMaxAge(-1);
+                        map.put("status",500);
+                        map.put("msg", "请重新输入用户名和密码登录");
+                    }
+                    return map;
                 }
-                return map;
             }
         }
         User u = user.login(username, password);
