@@ -1,0 +1,2 @@
+webpackJsonp([1],{bPHT:function(e,t){},ia7Y:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a={render:function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("我是用户中心")])},staticRenderFns:[]};var r=n("VU/8")({name:"user"},a,!1,function(e){n("bPHT")},"data-v-2a95a4f1",null);t.default=r.exports}});
+//# sourceMappingURL=1.8b95fa344f45aa0a9b60.js.map

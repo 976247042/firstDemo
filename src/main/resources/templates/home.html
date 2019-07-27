@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--关联静态资源-->
+<img src="../static/imgs/timg.jpg"  th:src = "@{/imgs/timg.jpg}"  alt="失败">
+<h2>我是home</h2>
+<p th:text = "${name}"></p>
+</body>
+</html>
