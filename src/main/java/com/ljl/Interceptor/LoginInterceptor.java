@@ -10,7 +10,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println(request.getRequestURI()+"进入了拦截器");
+//        System.out.println(request.getRequestURI()+"进入了拦截器");
         return true;
     }
 

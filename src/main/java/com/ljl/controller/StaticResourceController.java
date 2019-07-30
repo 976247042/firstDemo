@@ -1,7 +1,7 @@
 package com.ljl.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /*
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 *  想要访问只能通过controller访问
 *
 * */
-@Controller
+@RestController
 public class StaticResourceController {
 
 
@@ -24,8 +24,9 @@ public class StaticResourceController {
 //
 //        return modelAndView;
 //    }
-//    @RequestMapping("/")
-//    public String index(){
-//        return "redirect:index.html";
-//    }
+    @RequestMapping("/index")
+    public String index(){
+//        System.out.println("index");
+        return "";
+    }
 }
