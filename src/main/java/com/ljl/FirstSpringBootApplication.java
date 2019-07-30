@@ -10,6 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
 *  1.扫包优化 使用定位扫包的方式
 *  EnableAutoConfiguration
 *  ComponentScan({''})
+*  2.jvm参数调优
+*    内部调优  堆内存和最大内存保持一直 :-XX:+PrintGCDetails -Xmx1024m -Xms1024m
+     外部调优:java -server -Xms32m -Xmx32m -jar jar包名
 * */
 @SpringBootApplication
 //该注解默认等同于EnableAutoConfiguration + ComponentScan(默认为扫描该文件所在包以及他的所有子包)
